@@ -9,7 +9,7 @@ import (
 )
 
 // Endpoints
-const (
+var (
 	baseWsMainURL          = "wss://stream.binance.com:9443/ws"
 	baseWsTestnetURL       = "wss://testnet.binance.vision/ws"
 	baseCombinedMainURL    = "wss://stream.binance.com:9443/stream?streams="
@@ -22,6 +22,14 @@ var (
 	// WebsocketKeepalive enables sending ping/pong messages to check the connection stability
 	WebsocketKeepalive = false
 )
+
+func SetBaseWsTestnetURL(url string) {
+	baseWsTestnetURL = url
+}
+
+func SetBaseWsMainURL(url string) {
+	baseWsMainURL = url
+}
 
 // getWsEndpoint return the base endpoint of the WS according the UseTestnet flag
 func getWsEndpoint() string {
